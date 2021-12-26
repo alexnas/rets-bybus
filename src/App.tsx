@@ -1,10 +1,12 @@
 import { Header } from './components/header/Header';
+import { SearchBar } from './components/searchBar/SearchBar';
 import { Container } from './styles/Container';
 
 export const App: React.FC = () => {
   return (
     <div>
       <Header />
+      <SearchBar />
       <Container>
         <h1>~~~ GoByBus ~~~</h1>
         <p>
