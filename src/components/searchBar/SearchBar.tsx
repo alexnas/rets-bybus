@@ -15,7 +15,7 @@ const SearchTitle = styled.div`
   font-size: 2rem;
   color: ${({ theme }) => theme.colors.thirdLight};
   padding-bottom: 50px;
-  text-shadow: 0 1px 5px ${({ theme }) => theme.colors.thirdDark};
+  text-shadow: 0 1px 5px ${(props) => props.theme.colors.thirdDark};
 `;
 
 export const SearchBar: React.FC = () => {
