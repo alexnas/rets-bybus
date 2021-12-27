@@ -7,12 +7,12 @@ import { Flex } from '../../styles/Flex';
 interface Props {}
 
 const StyledSeachForm = styled.form`
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.formBg};
   height: 50px;
   border-width: 1px;
   border: 2px solid gray;
   border-radius: 0.125rem;
-  box-shadow: 0 0 10px 10px rgb(0 0 0 / 60%);
+  box-shadow: ${({ theme }) => theme.colors.searchShadow};
 `;
 
 const StyledInput = styled.input`
@@ -23,26 +23,29 @@ const StyledInput = styled.input`
   height: 46px;
   padding-left: 4px;
   margin-bottom: 10px;
-  border: solid #e5e7eb;
+  border: solid ${({ theme }) => theme.colors.borderLight};
   border-width: 0 4px 0 0;
+  border-radius: 15px;
   :focus {
     outline: none;
   }
   &:focus {
     outline: none;
-    background-color: #f5eed7;
+    background-color: ${({ theme }) => theme.colors.formSecBg};
   }
 `;
 
 const StyledArrorIcon = styled(CgArrowsExchange)`
   height: 46px;
   width: 3rem;
-  color: rgb(75 85 99);
-  border: solid #e5e7eb;
+  color: ${({ theme }) => theme.colors.mainLight};
+  border: solid ${({ theme }) => theme.colors.borderLight};
   border-width: 0 4px 0 0;
+  border-radius: 15px;
   margin-bottom: 5px;
+  opacity: 80%;
   &:hover {
-    opacity: 70%;
+    opacity: 50%;
     cursor: pointer;
   }
 `;
@@ -55,7 +58,7 @@ const StyledSearchButton = styled.button`
   font-size: 100%;
   margin-bottom: 10px;
   border: none;
-  background-color: #fec91c;
+  background-color: ${({ theme }) => theme.colors.headerBg};
   padding: 0;
   &:hover {
     opacity: 70%;

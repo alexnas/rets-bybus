@@ -13,9 +13,9 @@ const StyledSearchBar = styled(Flex)`
 
 const SearchTitle = styled.div`
   font-size: 2rem;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.thirdLight};
   padding-bottom: 50px;
-  text-shadow: 0 1px 5px #000;
+  text-shadow: 0 1px 5px ${({ theme }) => theme.colors.thirdDark};
 `;
 
 export const SearchBar: React.FC = () => {
@@ -30,50 +30,3 @@ export const SearchBar: React.FC = () => {
     </div>
   );
 };
-
-// import img from '../../assets/images/searchbg.jpg'
-
-// import myImage from '../../assets/images/searchbg.jpg';
-
-// const headerLogo = process.env.PUBLIC_URL + '/images/gobybus_logo.png';
-
-// const StyledLogo = styled.img`
-//   width: 200px;
-// `;
-// <div>
-//   <StyledLogo src={searchBg} alt='GoByBus' />
-// </div>;
-
-// -webkit-background-size: cover;
-// -moz-background-size: cover;
-// -o-background-size: cover;
-// background-size: cover;
-
-// const StyledLogo = styled.img`
-//   width: 200px;
-// `;
-
-// {
-
-// const searchbg = process.env.PUBLIC_URL + '/searchbg.jpg';
-// const img = '../../assets/images/searchbg.jpg';
-
-// const StyledSearchBar = styled.div`
-//   width: 500px;
-// `;
-
-// export const SearchBar: React.FC = () => {
-//   return;
-//   <div>
-//     <StyledLogo src={headerLogo} alt='GoByBus' />
-//   </div>;
-// };
-
-// ========
-
-// "bus-trip": "url('/src/assets/img/searchbg.jpg')",
-// imgUrl={searchbg}
-/* background-image: url(${(props) => props.searchbg}); */
-/* background-image: url(${searchbg}); */
-/* background-image: url(${'../../assets/images/searchbg.jpg'}); */
-// background-image: ${(props) => `url(${require(`../images/${props.backgroundImage}`)})`

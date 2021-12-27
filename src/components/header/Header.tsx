@@ -7,7 +7,7 @@ import { Flex } from '../../styles/Flex';
 
 export const StyledHeader = styled.header`
   padding: 14px 0;
-  background-color: #fec91c;
+  background-color: ${({ theme }) => theme.colors.headerBg};
 `;
 
 export const Header: React.FC = () => {

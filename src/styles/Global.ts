@@ -1,6 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
+import { ThemeType } from './Theme';
 
-const GlobalStyles = createGlobalStyle`
+type GlobalStyleProps = {
+  theme: ThemeType;
+  // add new styles, when you need
+};
+
+const GlobalStyles = createGlobalStyle<GlobalStyleProps>`
 
   * {
 		margin: 0;
@@ -9,10 +15,10 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background: hsl(81deg 54% 39% / 10%);
-    color: hsl(192, 100%, 9%);
-    font-size: 1.15em;
     margin: 0;
+		background: ${({ theme }) => theme.colors.mainBg};
+    color: ${({ theme }) => theme.colors.mainLight};
+    font-size: 1.15em;
   }
 
   p {
