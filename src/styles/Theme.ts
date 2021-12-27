@@ -1,7 +1,6 @@
 export type ThemeType = typeof theme;
 
 export const theme = {
-  // background: 'palevioletred',
   colors: {
     headerBg: '#fec91c',
     mainBg: '#f7f4ec',
