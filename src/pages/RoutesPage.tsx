@@ -5,13 +5,14 @@ import { MainWrapper } from '../styles/MainWrapper';
 
 interface Props {}
 
-const HomePage: React.FC = (props: Props) => {
+const RoutesPage: React.FC = (props: Props) => {
   return (
     <MainWrapper>
-      <SecondBar title='About GoByBus Project' />
+      <SecondBar title='Your journey: from Cuenca to ...' />
       <Container>
-        <h2>Welcome into the GoByBus project! </h2>
-        <h4>We are here to help you to reach the right place in time...</h4>
+        <h4>Found routes table</h4>
+
+        <p>Under Construction...</p>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
           suscipit ab sit dolor eaque tenetur necessitatibus neque voluptatum!
@@ -22,4 +23,4 @@ const HomePage: React.FC = (props: Props) => {
   );
 };
 
-export default HomePage;
+export default RoutesPage;

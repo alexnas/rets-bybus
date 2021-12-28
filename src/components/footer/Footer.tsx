@@ -11,6 +11,15 @@ const StyledFooter = styled.footer`
   background-color: ${({ theme }) => theme.colors.secBg};
   color: ${({ theme }) => theme.colors.thirdLight};
   font-size: 0.95rem;
+
+  li a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.mainLightHover};
+    }
+  }
 `;
 
 const Footer: React.FC = (props) => {

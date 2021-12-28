@@ -1,6 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Container } from '../../styles/Container';
+import { Flex } from '../../styles/Flex';
+
+interface ISecondBar {
+  title: string;
+}
 
 const StyledSecondBar = styled.div`
   padding: 14px 0;
@@ -8,11 +13,14 @@ const StyledSecondBar = styled.div`
   color: ${({ theme }) => theme.colors.thirdLight};
 `;
 
-const SecondBar: React.FC = (props) => {
+const SecondBar: React.FC<ISecondBar> = (props) => {
   return (
     <StyledSecondBar>
       <Container>
-        <h3>Bus Companies ~~~ GoByBus ~~~</h3>
+        <Flex>
+          <h4>{props.title}</h4>
+          <h4> ~~~ GoByBus ~~~ </h4>
+        </Flex>
       </Container>
     </StyledSecondBar>
   );

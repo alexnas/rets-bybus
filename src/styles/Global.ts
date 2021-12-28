@@ -26,6 +26,31 @@ const GlobalStyles = createGlobalStyle<GlobalStyleProps>`
     line-height: 1.5;
   }
 
+	h2 {
+		font-size: 28px;
+		font-weight: 600;
+		text-align: left;
+		padding: 20px 0 0 0;
+	}
+	
+	h3 {
+		font-size: 18px;
+		font-weight: 600;
+		color: #fff;
+		text-align: left;
+		padding: 5px 0 10px 0;
+	}
+
+		h4 {
+		font-size: 22px;
+		font-weight: 400;
+		text-align: left;
+		padding: 5px 0 10px 0;
+	}
+
+
+
+
   img {
     max-width: 100%;
 }

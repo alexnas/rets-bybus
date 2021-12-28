@@ -12,9 +12,11 @@ export const theme = {
     borderLight: '#e5e7eb',
 
     mainLight: '#00252E',
+    mainLightHover: 'red',
     secondLight: '#00252E',
     thirdLight: '#fff',
     thirdDark: '#000',
+    forthLight: 'yellow',
 
     searchShadow: '0 0 10px 10px rgb(0 0 0 / 60%)',
   },

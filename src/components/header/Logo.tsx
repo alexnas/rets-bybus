@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 const headerLogo = process.env.PUBLIC_URL + '/images/gobybus_logo.png';
 
@@ -8,8 +9,8 @@ const StyledLogo = styled.img`
 
 export const Logo: React.FC = () => {
   return (
-    <div>
+    <Link to='/'>
       <StyledLogo src={headerLogo} alt='GoByBus' />
-    </div>
+    </Link>
   );
 };

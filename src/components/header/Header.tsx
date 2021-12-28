@@ -8,7 +8,17 @@ import { Flex } from '../../styles/Flex';
 
 export const StyledHeader = styled.header`
   padding: 14px 0;
+  color: ${({ theme }) => theme.colors.mainLight};
   background-color: ${({ theme }) => theme.colors.headerBg};
+
+  li a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.mainLightHover};
+    }
+  }
 `;
 
 export const Header: React.FC = () => {
