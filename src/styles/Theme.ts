@@ -19,6 +19,7 @@ export const theme = {
     forthLight: 'yellow',
 
     searchShadow: '0 0 10px 10px rgb(0 0 0 / 60%)',
+    asideBoxShadow: '0 3px 5px 0 rgb(0 0 0 / 20%)',
   },
 
   mobile: '768px',

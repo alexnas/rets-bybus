@@ -12,7 +12,6 @@ export const StyledHeader = styled.header`
   background-color: ${({ theme }) => theme.colors.headerBg};
 
   li a {
-    text-decoration: none;
     color: inherit;
 
     &:hover {

@@ -8,11 +8,9 @@ export const StyledHeaderNav = styled.nav`
   display: flex;
 
   li {
-    list-style-type: none;
     margin-left: 10px;
   }
   li > a {
-    text-decoration: none;
     color: inherit;
 
     &:hover {

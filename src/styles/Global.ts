@@ -48,8 +48,13 @@ const GlobalStyles = createGlobalStyle<GlobalStyleProps>`
 		padding: 5px 0 10px 0;
 	}
 
+	ul {
+		list-style-type: none;
+	}
 
-
+	a {
+		text-decoration: none;
+	}
 
   img {
     max-width: 100%;

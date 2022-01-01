@@ -13,7 +13,6 @@ const StyledFooter = styled.footer`
   font-size: 0.95rem;
 
   li a {
-    text-decoration: none;
     color: inherit;
 
     &:hover {
