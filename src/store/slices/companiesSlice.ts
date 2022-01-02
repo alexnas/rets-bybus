@@ -3,7 +3,7 @@ import axios from 'axios';
 import { ICompany } from './../../types';
 
 export const getCompaniesAsync = createAsyncThunk(
-  'user/fetchAll',
+  'company/fetchAll',
   async (_, thunkAPI) => {
     try {
       const response = await axios.get<ICompany[]>(
@@ -29,7 +29,7 @@ const initialState: ICompanies = {
 };
 
 const companiesSlice = createSlice({
-  name: 'countries',
+  name: 'companies',
   initialState,
   reducers: {},
   extraReducers: {

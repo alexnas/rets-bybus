@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../store/hooks';
-import { getCompaniesAsync } from '../../store/slices/companiesSlice';
+import { getRoutesAsync } from '../../store/slices/routesSlice';
 import { StyledCardBody, StyledCardList } from '../../styles/Card';
-import CompanyItem from './CompanyItem';
+import RouteItem from './RoutesItem';
 
-const CompaniesList: React.FC = () => {
+interface Props {}
+
+const RoutesList: React.FC = (props: Props) => {
   const dispatch = useDispatch();
-  const { companies, isLoading, error } = useAppSelector(
-    (state) => state.companies
-  );
+  const { routes, isLoading, error } = useAppSelector((state) => state.routes);
 
   useEffect(() => {
-    dispatch(getCompaniesAsync());
+    dispatch(getRoutesAsync());
   }, [dispatch]);
 
   return (
@@ -21,12 +21,12 @@ const CompaniesList: React.FC = () => {
       {error && <h2>{error}</h2>}
 
       <StyledCardList>
-        {companies.map((company) => (
-          <CompanyItem key={company.id} company={company} />
+        {routes.map((route) => (
+          <RouteItem key={route.id} route={route} />
         ))}
       </StyledCardList>
     </StyledCardBody>
   );
 };
 
-export default CompaniesList;
+export default RoutesList;
