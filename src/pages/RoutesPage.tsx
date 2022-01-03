@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import RoutesBlock from '../components/RoutesBlock/RoutesBlock';
 import SecondBar from '../components/secondBar/SecondBar';
 import Sidebar from '../components/sidebar/Sidebar';
-import { Flex } from '../styles/Flex';
-import { MainWrapper } from '../styles/MainWrapper';
+import { Wrapper } from '../styles/Wrapper';
 
 interface Props {}
 
@@ -15,13 +14,11 @@ const RoutesPage: React.FC = (props: Props) => {
   const currentRoute = `Your journey: from ${startCity} to ${endCity}`;
   return (
     <>
-      <MainWrapper>
-        <SecondBar title={currentRoute} />
-        <Flex>
-          <Sidebar />
-          <RoutesBlock />
-        </Flex>
-      </MainWrapper>
+      <SecondBar title={currentRoute} />
+      <Wrapper display='flex' padding='40px 0 0 0'>
+        <Sidebar />
+        <RoutesBlock />
+      </Wrapper>
     </>
   );
 };

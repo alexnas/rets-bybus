@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { CgArrowsExchange } from 'react-icons/cg';
 
 import { Flex } from '../../styles/Flex';
+import { Container } from '../../styles/Container';
 
 interface Props {}
 
@@ -10,17 +11,19 @@ const StyledSeachForm = styled.form`
   background-color: ${({ theme }) => theme.colors.formBg};
   height: 50px;
   border-width: 1px;
-  border: 2px solid gray;
-  border-radius: 0.125rem;
+  border: 1px solid gray;
   box-shadow: ${({ theme }) => theme.colors.searchShadow};
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 0 8px;
 `;
 
 const StyledInput = styled.input`
   color: inherit;
   font-family: inherit;
   font-size: 100%;
-  width: 40%;
-  height: 46px;
+  width: 33%;
+  height: 48px;
   padding-left: 4px;
   margin-bottom: 10px;
   border: solid ${({ theme }) => theme.colors.borderLight};
@@ -37,11 +40,11 @@ const StyledInput = styled.input`
 
 const StyledArrorIcon = styled(CgArrowsExchange)`
   height: 46px;
-  width: 3rem;
+  width: 48px;
   color: ${({ theme }) => theme.colors.mainLight};
   border: solid ${({ theme }) => theme.colors.borderLight};
   border-width: 0 4px 0 0;
-  border-radius: 15px;
+  border-radius: 1rem;
   margin-bottom: 5px;
   opacity: 80%;
   &:hover {
@@ -51,19 +54,24 @@ const StyledArrorIcon = styled(CgArrowsExchange)`
 `;
 
 const StyledSearchButton = styled.button`
-  width: 9rem;
-  height: 46px;
+  width: 144px;
+  height: 48px;
   color: inherit;
   font-family: inherit;
   font-size: 100%;
   margin-bottom: 10px;
   border: none;
+  border-radius: 4px;
   background-color: ${({ theme }) => theme.colors.headerBg};
   padding: 0;
   &:hover {
     opacity: 70%;
     cursor: pointer;
   }
+`;
+
+const StyledFormWrapper = styled(Flex)`
+  width: 100%;
 `;
 
 export const SearchForm = (props: Props) => {
@@ -91,10 +99,10 @@ export const SearchForm = (props: Props) => {
   };
 
   return (
-    <div>
+    <Container>
       <StyledSeachForm onSubmit={handleSubmitSearchForm}>
         <Flex>
-          <Flex>
+          <StyledFormWrapper>
             <StyledInput
               onChange={(e) => {
                 setStartCity(e.target.value);
@@ -121,10 +129,10 @@ export const SearchForm = (props: Props) => {
               value={company}
               list='company-options'
             />
-          </Flex>
+          </StyledFormWrapper>
           <StyledSearchButton>Find now</StyledSearchButton>
         </Flex>
       </StyledSeachForm>
-    </div>
+    </Container>
   );
 };

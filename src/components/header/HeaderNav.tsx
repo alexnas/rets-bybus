@@ -4,8 +4,9 @@ import { Flex } from '../../styles/Flex';
 import { StyledLink } from '../../styles/StyledLink';
 
 export const StyledHeaderNav = styled.nav`
-  align-items: center;
   display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
 
   li {
     margin-left: 10px;
