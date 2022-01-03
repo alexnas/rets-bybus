@@ -15,7 +15,7 @@ const HomePage: React.FC = (props: Props) => {
         <h2>Bus tickets from Cuenca for everybody</h2>
         <h4>Check the bus schedule and pick up your your best tickets</h4>
 
-        <Card title='Top bus companies working with Cuenca'>
+        <Card title='Top bus routes with Cuenca'>
           <RoutesList />
         </Card>
       </Container>
