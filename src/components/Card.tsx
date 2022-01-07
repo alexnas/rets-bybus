@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledCardTitle, StyledCardWrapper } from '../styles/Card';
+import { StyledCardTitle, StyledCardWrapper } from '../styles/StyledCard';
 
 interface ICardProps {
   title: string;

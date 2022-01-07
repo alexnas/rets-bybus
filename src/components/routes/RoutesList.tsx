@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../store/hooks';
 import { getRoutesAsync } from '../../store/slices/routesSlice';
-import { StyledCardBody, StyledCardList } from '../../styles/Card';
 import RouteItem from './RoutesItem';
 
 interface Props {}
@@ -12,20 +11,27 @@ const RoutesList: React.FC = (props: Props) => {
   const { routes, isLoading, error } = useAppSelector((state) => state.routes);
 
   useEffect(() => {
-    dispatch(getRoutesAsync());
-  }, [dispatch]);
+    if (!routes.length) {
+      dispatch(getRoutesAsync());
+    }
+  }, [dispatch, routes.length]);
 
   return (
-    <StyledCardBody>
+    <div>
       {isLoading && <h2>Loading...</h2>}
       {error && <h2>{error}</h2>}
 
-      <StyledCardList>
-        {routes.map((route) => (
-          <RouteItem key={route.id} route={route} />
-        ))}
-      </StyledCardList>
-    </StyledCardBody>
+      <ul className=''>
+        {routes &&
+          routes.map((route) => {
+            return (
+              <li key={route.id}>
+                <RouteItem route={route} />
+              </li>
+            );
+          })}
+      </ul>
+    </div>
   );
 };
 

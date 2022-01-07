@@ -12,8 +12,8 @@ export interface ICompany {
 export interface IRoute {
   id: number;
   name: string;
-  startTime: string;
-  endTime: string;
+  start_time: string;
+  end_time: string;
   price: number;
   distance: number;
   description: string;

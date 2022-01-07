@@ -1,4 +1,17 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+export const cssCardShadow = css`
+  box-shadow: ${({ theme }) => theme.colors.asideBoxShadow};
+`;
+
+export const cssCardBody = css`
+  background-color: ${({ theme }) => theme.colors.formBg};
+  border: 2px solid ${({ theme }) => theme.colors.borderLight};
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
 
 export const StyledCardWrapper = styled.div`
   box-shadow: ${({ theme }) => theme.colors.asideBoxShadow};

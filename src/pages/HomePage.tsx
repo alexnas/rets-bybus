@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '../components/Card';
-import RoutesList from '../components/routes/RoutesList';
+import TopRoutesList from '../components/routes/TopRoutesList';
 import SecondBar from '../components/secondBar/SecondBar';
 import { Container } from '../styles/Container';
 import { Wrapper } from '../styles/Wrapper';
@@ -17,7 +17,7 @@ const HomePage: React.FC = (props: Props) => {
           <h4>Check the bus schedule and pick up your your best tickets</h4>
 
           <Card title='Top bus routes with Cuenca'>
-            <RoutesList />
+            <TopRoutesList />
           </Card>
         </Wrapper>
       </Container>

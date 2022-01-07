@@ -11,6 +11,7 @@ const RoutesPage: React.FC = (props: Props) => {
   const [endCity, setEndCity] = useState('Quito');
   // startCity = startCity || '?';
   // endCity = endCity || '?';
+
   const currentRoute = `Your journey: from ${startCity} to ${endCity}`;
   return (
     <>
