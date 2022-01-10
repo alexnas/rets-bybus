@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+// import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../store/hooks';
-import { getCompaniesAsync } from '../../store/slices/companiesSlice';
+// import { getCompaniesAsync } from '../../store/slices/companiesSlice';
 import { StyledCardBody, StyledCardList } from '../../styles/StyledCard';
 import CompanyItem from './CompanyItem';
 
 const CompaniesList: React.FC = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const { companies, isLoading, error } = useAppSelector(
     (state) => state.companies
   );
 
-  useEffect(() => {
-    dispatch(getCompaniesAsync());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getCompaniesAsync());
+  // }, [dispatch]);
 
   return (
     <StyledCardBody>

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import Footer from './components/footer/Footer';
 import { Header } from './components/header/Header';
@@ -10,8 +11,19 @@ import NotFoundPage from './pages/NotFoundPage';
 import CompaniesPage from './pages/CompaniesPage';
 import RoutesPage from './pages/RoutesPage';
 import SupportPage from './pages/SupportPage';
+import { getRoutesAsync } from './store/slices/routesSlice';
+import { getCompaniesAsync } from './store/slices/companiesSlice';
+import { getCitiesAsync } from './store/slices/citiesSlice';
 
 export const App: React.FC = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getRoutesAsync());
+    dispatch(getCompaniesAsync());
+    dispatch(getCitiesAsync());
+  }, [dispatch]);
+
   return (
     <div>
       <Header />

@@ -1,25 +1,18 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import { useAppSelector } from '../../store/hooks';
-import { getRoutesAsync } from '../../store/slices/routesSlice';
 import RouteItem from './RoutesItem';
 
 interface Props {}
 
 const RoutesList: React.FC = (props: Props) => {
-  const dispatch = useDispatch();
-  const { routes, isLoading, error } = useAppSelector((state) => state.routes);
-
-  useEffect(() => {
-    if (!routes.length) {
-      dispatch(getRoutesAsync());
-    }
-  }, [dispatch, routes.length]);
+  const { routes, isRoutesLoading, routesError } = useAppSelector(
+    (state) => state.routes
+  );
 
   return (
     <div>
-      {isLoading && <h2>Loading...</h2>}
-      {error && <h2>{error}</h2>}
+      {isRoutesLoading && <h2>Loading...</h2>}
+      {routesError && <h2>{routesError}</h2>}
 
       <ul className=''>
         {routes &&

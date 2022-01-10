@@ -20,4 +20,41 @@ export interface IRoute {
   startCityId: number;
   endCityId: number;
   companyId: number;
+  start_city: any;
+  end_city: IStartCity;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface IStartCity {
+  id: number;
+  name: string;
+  description: string;
+  city: ICity;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface ICity {
+  id: number;
+  name: string;
+  description: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface IProvince {
+  id: number;
+  name: string;
+  description: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface IProvince {
+  id: number;
+  name: string;
+  description: string;
+  createdAt: string;
+  updatedAt: string;
 }

@@ -1,24 +1,19 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import { useAppSelector } from '../../store/hooks';
-import { getRoutesAsync } from '../../store/slices/routesSlice';
 import { StyledCardBody, StyledCardList } from '../../styles/StyledCard';
 import TopRouteItem from './TopRoutesItem';
 
 interface Props {}
 
 const TopRoutesList: React.FC = (props: Props) => {
-  const dispatch = useDispatch();
-  const { routes, isLoading, error } = useAppSelector((state) => state.routes);
-
-  useEffect(() => {
-    dispatch(getRoutesAsync());
-  }, [dispatch]);
+  const { routes, isRoutesLoading, routesError } = useAppSelector(
+    (state) => state.routes
+  );
 
   return (
     <StyledCardBody>
-      {isLoading && <h2>Loading...</h2>}
-      {error && <h2>{error}</h2>}
+      {isRoutesLoading && <h2>Loading...</h2>}
+      {routesError && <h2>{routesError}</h2>}
 
       <StyledCardList>
         {routes.map((route) => (

@@ -18,14 +18,14 @@ export const getRoutesAsync = createAsyncThunk(
 
 interface IRoutes {
   routes: IRoute[];
-  isLoading: boolean;
-  error: string | null;
+  isRoutesLoading: boolean;
+  routesError: string | null;
 }
 
 const initialState: IRoutes = {
   routes: [],
-  isLoading: false,
-  error: '',
+  isRoutesLoading: false,
+  routesError: '',
 };
 
 const routesSlice = createSlice({
@@ -37,16 +37,16 @@ const routesSlice = createSlice({
       state,
       action: PayloadAction<IRoute[]>
     ) => {
-      state.isLoading = false;
-      state.error = '';
+      state.isRoutesLoading = false;
+      state.routesError = '';
       state.routes = action.payload;
     },
     [getRoutesAsync.pending.type]: (state) => {
-      state.isLoading = true;
+      state.isRoutesLoading = true;
     },
     [getRoutesAsync.rejected.type]: (state, action: PayloadAction<string>) => {
-      state.isLoading = false;
-      state.error = action.payload;
+      state.isRoutesLoading = false;
+      state.routesError = action.payload;
     },
   },
 });
