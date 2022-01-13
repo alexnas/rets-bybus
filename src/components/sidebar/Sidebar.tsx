@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import FilterRoutes from './FilterRoutes';
+import SortRoutes from './SortRoutes';
 
 interface Props {}
 
@@ -12,7 +14,8 @@ const StyledSidebar = styled.div`
 const Sidebar = (props: Props) => {
   return (
     <StyledSidebar>
-      <h4>Siebar</h4>
+      <SortRoutes />
+      <FilterRoutes />
     </StyledSidebar>
   );
 };
