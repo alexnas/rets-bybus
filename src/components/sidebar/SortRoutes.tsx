@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import styled, { css } from 'styled-components';
 import { FaCaretDown, FaCheck } from 'react-icons/fa';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 import {
   BUS_ROUTES_SORT_PARAMS,
+  ISortParamSpecs,
   sortItems,
 } from '../../constants/sortConstants';
 import { useAppSelector } from '../../store/hooks';
@@ -86,7 +87,7 @@ const StyledCheckIcon = styled(FaCheck)`
 
 interface ISortLinkProps {
   hideSortBox: (e: React.MouseEvent<HTMLAnchorElement>) => void;
-  sortParams: any;
+  sortParams: ISortParamSpecs;
   currentSortKey: string;
 }
 

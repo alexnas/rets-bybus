@@ -9,7 +9,14 @@ export const getRoutesAsync = createAsyncThunk(
       const response = await axios.get<IRoute[]>(
         'http://localhost:5000/api/route'
       );
-      return response.data;
+
+      const fetchedData = response.data;
+
+      fetchedData.forEach((item) => {
+        item.price = Number(item.price);
+      });
+
+      return fetchedData;
     } catch (e) {
       return thunkAPI.rejectWithValue('Sorry, failed loading bus routes list');
     }
