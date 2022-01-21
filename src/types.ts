@@ -12,6 +12,7 @@ export interface ICompany {
 export interface IRoute {
   id: number;
   name: string;
+  company: ICompany;
   start_time: string;
   end_time: string;
   price: number;

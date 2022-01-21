@@ -13,7 +13,7 @@ const StyledSeachForm = styled.form`
   border-width: 1px;
   border: 1px solid gray;
   box-shadow: ${({ theme }) => theme.colors.searchShadow};
-  border-radius: 4px;
+  border-radius: 5px;
   overflow: hidden;
   margin: 0 8px;
 `;
@@ -61,7 +61,7 @@ const StyledSearchButton = styled.button`
   font-size: 100%;
   margin-bottom: 10px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   background-color: ${({ theme }) => theme.colors.headerBg};
   padding: 0;
   &:hover {

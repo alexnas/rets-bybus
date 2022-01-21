@@ -10,6 +10,7 @@ import {
 } from '../../constants/sortConstants';
 import { useAppSelector } from '../../store/hooks';
 import { setSortParams } from '../../store/slices/sortSlice';
+import { StyledFilterWrapperUl, StyledLink } from '../../styles/Filters';
 
 const textBase = css`
   font-size: 1rem;
@@ -18,33 +19,6 @@ const textBase = css`
 
 const StyledSideBoxTitle = styled.div`
   ${textBase}
-`;
-
-const StyledSortWrapperUl = styled.ul`
-  ${textBase};
-  position: relative;
-  line-height: 2.25rem;
-  box-shadow: '0 3px 5px 0 rgb(0 0 0 / 20%)';
-  border: 1px solid rgb(204, 204, 204);
-  background-color: white;
-  border-radius: 4px;
-  margin-bottom: 0.5rem;
-`;
-
-const StyledLink = styled.a`
-  display: flex;
-  align-items: center;
-  color: rgb(37, 33, 19);
-  width: 100%;
-  margin-left: 8px;
-
-  *:focus {
-    outline: none;
-  }
-
-  div {
-    margin-left: 4px;
-  }
 `;
 
 const StyledSortListUl = styled.ul`
@@ -152,7 +126,7 @@ const SortRoutes: React.FC = () => {
       <StyledSideBoxTitle>
         <span>Sort by</span>
       </StyledSideBoxTitle>
-      <StyledSortWrapperUl>
+      <StyledFilterWrapperUl>
         <li>
           <StyledLink onClick={toggleSortBox} href='/#'>
             <FaCaretDown />
@@ -176,7 +150,7 @@ const SortRoutes: React.FC = () => {
             </li>
           </StyledSortListUl>
         </li>
-      </StyledSortWrapperUl>
+      </StyledFilterWrapperUl>
     </>
   );
 };

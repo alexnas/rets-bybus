@@ -21,7 +21,7 @@ export const StyledCardTitle = styled.div`
   width: 100%;
   padding: 10px;
   background-color: teal;
-  border-radius: 4px;
+  border-radius: 5px;
 `;
 
 export const StyledCardBody = styled.div`

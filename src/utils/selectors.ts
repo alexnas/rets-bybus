@@ -1,15 +1,30 @@
 import { createSelector } from 'reselect';
 import orderBy from 'lodash/orderBy';
+import { IRoute } from '../types';
 
-export const getSortedRoutesCollection = createSelector(
-  [(state) => state && state.routes, (state) => state.sortParams],
-  (routesCollection, sortParams) => {
-    if (routesCollection.routes.length === 0) {
+export const getSortedFilteredCollection = createSelector(
+  [
+    (state) => state && state.routes.routes,
+    (state) => state.filterByCompany.filterByCompany,
+    (state) => state.sortParams,
+  ],
+  (routes: IRoute[], filterByCompany, sortParams) => {
+    if (routes.length === 0) {
       return [];
     }
-    if (sortParams) {
-      return orderBy(routesCollection.routes, sortParams.sortParams.sortKey);
+
+    let filteredRoutes = routes.filter(
+      (route) => filterByCompany[route.company.name]
+    );
+
+    if (filteredRoutes.length === 0) {
+      filteredRoutes = routes;
     }
-    return routesCollection.routes;
+
+    if (sortParams) {
+      return orderBy(filteredRoutes, sortParams.sortParams.sortKey);
+    }
+
+    return filteredRoutes;
   }
 );

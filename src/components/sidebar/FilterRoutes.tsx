@@ -1,12 +1,22 @@
 import React from 'react';
+import styled from 'styled-components';
+import { StyledBaseTitle } from '../../styles/Filters';
+import FilterByCompany from './FilterByCompany';
 
 interface Props {}
 
+const FilterWrapper = styled.div`
+  margin-top: 20px;
+`;
+
 const FilterRoutes = (props: Props) => {
   return (
-    <div>
-      <h4>Filter Routes</h4>
-    </div>
+    <FilterWrapper>
+      <StyledBaseTitle>
+        <span>Filter</span>
+      </StyledBaseTitle>
+      <FilterByCompany />
+    </FilterWrapper>
   );
 };
 

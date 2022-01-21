@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAppSelector } from '../../store/hooks';
 import { IRoute } from '../../types';
-import { getSortedRoutesCollection } from '../../utils/selectors';
+import { getSortedFilteredCollection } from '../../utils/selectors';
 import RouteItem from './RoutesItem';
 
 const RoutesList: React.FC = () => {
@@ -9,18 +9,20 @@ const RoutesList: React.FC = () => {
     (state) => state.routes
   );
 
-  const sortedRoutes: IRoute[] = useAppSelector((state) =>
-    getSortedRoutesCollection(state)
+  const sortedFilteredRoutes: IRoute[] = useAppSelector((state) =>
+    getSortedFilteredCollection(state)
   );
 
-  const preparedRoutes = sortedRoutes;
+  console.log('sortedFilteredRoutes =========', sortedFilteredRoutes);
+
+  const preparedRoutes = sortedFilteredRoutes;
 
   return (
     <div>
       {isRoutesLoading && <h2>Loading...</h2>}
       {routesError && <h2>{routesError}</h2>}
 
-      <ul className=''>
+      <ul>
         {preparedRoutes &&
           preparedRoutes.map((route) => {
             return (
