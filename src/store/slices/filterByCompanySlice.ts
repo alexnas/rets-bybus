@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IRoute } from '../../types';
 
-interface IFilterByCompany {
+export interface IFilterByCompany {
   filterByCompany: { [companyName: string]: boolean };
 }
 

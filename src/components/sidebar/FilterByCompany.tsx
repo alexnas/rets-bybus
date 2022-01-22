@@ -97,9 +97,7 @@ const CompanyFilterItem: React.FC<IItemProps> = ({
   );
 };
 
-interface Props {}
-
-const FilterByCompany = (props: Props) => {
+const FilterByCompany: React.FC = () => {
   const dispatch = useAppDispatch();
   const [showCompanyBox, setShowCompanyBox] = useState(true);
   const routes = useAppSelector((state) => state.routes.routes);

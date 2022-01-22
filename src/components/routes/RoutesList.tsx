@@ -13,8 +13,6 @@ const RoutesList: React.FC = () => {
     getSortedFilteredCollection(state)
   );
 
-  console.log('sortedFilteredRoutes =========', sortedFilteredRoutes);
-
   const preparedRoutes = sortedFilteredRoutes;
 
   return (
