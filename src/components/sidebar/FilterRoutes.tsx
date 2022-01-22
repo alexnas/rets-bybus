@@ -4,14 +4,13 @@ import { StyledBaseTitle } from '../../styles/Filters';
 import FilterByCompany from './FilterByCompany';
 import FilterByEndCity from './FilterByEndCity';
 import FilterByStartCity from './FilterByStartCity';
-
-interface Props {}
+import FilterResetButton from './FilterResetButton';
 
 const FilterWrapper = styled.div`
   margin-top: 20px;
 `;
 
-const FilterRoutes = (props: Props) => {
+const FilterRoutes: React.FC = () => {
   return (
     <FilterWrapper>
       <StyledBaseTitle>
@@ -20,6 +19,7 @@ const FilterRoutes = (props: Props) => {
       <FilterByCompany />
       <FilterByStartCity />
       <FilterByEndCity />
+      <FilterResetButton />
     </FilterWrapper>
   );
 };

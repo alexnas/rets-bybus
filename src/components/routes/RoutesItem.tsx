@@ -7,13 +7,13 @@ import { IRoute } from '../../types';
 import { formatShowTime24, formattedDurationHM } from '../../utils/time';
 import { useAppSelector } from '../../store/hooks';
 import { cssCardBody, cssCardShadow } from '../../styles/StyledCard';
-import { Button } from '../../styles/Button';
+import { StyledButton } from '../../styles/Button';
 
 interface IRouteItemProps {
   route: IRoute;
 }
 
-const StyledDetailsButton = styled(Button)`
+const StyledDetailsButton = styled(StyledButton)`
   width: 90px;
   height: 30px;
   font-size: 14px;

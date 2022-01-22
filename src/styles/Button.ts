@@ -1,9 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
 
-interface IButtonProps {}
-
-const StyledButton = styled.button`
+export const StyledButton = styled.button`
   width: 144px;
   height: 48px;
   color: inherit;
@@ -18,7 +15,3 @@ const StyledButton = styled.button`
     cursor: pointer;
   }
 `;
-
-export const Button: React.FC<IButtonProps> = (props) => {
-  return <StyledButton {...props} />;
-};

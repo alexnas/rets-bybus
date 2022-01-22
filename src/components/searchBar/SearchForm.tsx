@@ -4,6 +4,7 @@ import { CgArrowsExchange } from 'react-icons/cg';
 
 import { Flex } from '../../styles/Flex';
 import { Container } from '../../styles/Container';
+import { StyledButton } from '../../styles/Button';
 
 interface Props {}
 
@@ -53,21 +54,8 @@ const StyledArrorIcon = styled(CgArrowsExchange)`
   }
 `;
 
-const StyledSearchButton = styled.button`
-  width: 144px;
-  height: 48px;
-  color: inherit;
-  font-family: inherit;
-  font-size: 100%;
+const StyledSearchButton = styled(StyledButton)`
   margin-bottom: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: ${({ theme }) => theme.colors.headerBg};
-  padding: 0;
-  &:hover {
-    opacity: 70%;
-    cursor: pointer;
-  }
 `;
 
 const StyledFormWrapper = styled(Flex)`
