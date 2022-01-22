@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
   initializeFilterByStartCity,
   setStartCityFilterParams,
-} from '../../store/slices/FilterByStartCitySlice';
+} from '../../store/slices/filterByStartCitySlice';
 import {
   FilterItem,
   FilterLi,

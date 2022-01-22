@@ -4,8 +4,8 @@ import { companiesReducer } from './slices/companiesSlice';
 import { routesReducer } from './slices/routesSlice';
 import { sortReducer } from './slices/sortSlice';
 import { filterByCompanyReducer } from './slices/filterByCompanySlice';
-import { filterByStartCityReducer } from './slices/FilterByStartCitySlice';
-import { filterByEndCityReducer } from './slices/FilterByEndCitySlice';
+import { filterByStartCityReducer } from './slices/filterByStartCitySlice';
+import { filterByEndCityReducer } from './slices/filterByEndCitySlice';
 
 const rootReducer = combineReducers({
   companies: companiesReducer,

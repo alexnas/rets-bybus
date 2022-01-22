@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { initializeFilterByCompany } from '../../store/slices/filterByCompanySlice';
-import { initializeFilterByStartCity } from '../../store/slices/FilterByStartCitySlice';
-import { initializeFilterByEndCity } from '../../store/slices/FilterByEndCitySlice';
+import { initializeFilterByStartCity } from '../../store/slices/filterByStartCitySlice';
+import { initializeFilterByEndCity } from '../../store/slices/filterByEndCitySlice';
 import { StyledButton } from '../../styles/Button';
 
 const ButtonWrapper = styled.div`

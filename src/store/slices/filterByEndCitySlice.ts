@@ -11,7 +11,7 @@ const initialState: IFilterByEndCity = {
   filterByEndCity: {},
 };
 
-const FilterByEndCitySlice = createSlice({
+const filterByEndCitySlice = createSlice({
   name: 'routesByEndCityFilter',
   initialState,
   reducers: {
@@ -34,5 +34,5 @@ const FilterByEndCitySlice = createSlice({
 });
 
 export const { initializeFilterByEndCity, setEndCityFilterParams } =
-  FilterByEndCitySlice.actions;
-export const filterByEndCityReducer = FilterByEndCitySlice.reducer;
+  filterByEndCitySlice.actions;
+export const filterByEndCityReducer = filterByEndCitySlice.reducer;
