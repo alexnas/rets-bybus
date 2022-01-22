@@ -1,4 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import orderBy from 'lodash/orderBy';
+import { START_CITY } from '../../constants/sortConstants';
 import { IRoute } from '../../types';
 
 interface IFilterByStartCity {
@@ -15,7 +17,8 @@ const FilterByStartCitySlice = createSlice({
   reducers: {
     initializeFilterByStartCity(state, action: PayloadAction<IRoute[]>) {
       const routes = action.payload;
-      routes.forEach((route) => {
+      const sortedByStartCity = orderBy(routes, START_CITY);
+      sortedByStartCity.forEach((route) => {
         state.filterByStartCity[route.start_city.city.name] = false;
       });
     },

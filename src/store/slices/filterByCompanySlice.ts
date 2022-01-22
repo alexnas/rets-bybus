@@ -1,4 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import orderBy from 'lodash/orderBy';
+import { COMPANY_NAME } from '../../constants/sortConstants';
 import { IRoute } from '../../types';
 
 export interface IFilterByCompany {
@@ -15,7 +17,8 @@ const filterByCompanySlice = createSlice({
   reducers: {
     initializeFilterByCompany(state, action: PayloadAction<IRoute[]>) {
       const routes = action.payload;
-      routes.forEach((route) => {
+      const sortedByCompany = orderBy(routes, COMPANY_NAME);
+      sortedByCompany.forEach((route) => {
         state.filterByCompany[route.company.name] = false;
       });
     },

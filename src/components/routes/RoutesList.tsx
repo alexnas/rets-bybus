@@ -13,16 +13,22 @@ const RoutesList: React.FC = () => {
     getSortedFilteredCollection(state)
   );
 
-  const preparedRoutes = sortedFilteredRoutes;
+  const isEmptyRoutesList = sortedFilteredRoutes.length === 0;
 
   return (
     <div>
       {isRoutesLoading && <h2>Loading...</h2>}
       {routesError && <h2>{routesError}</h2>}
+      {isEmptyRoutesList && (
+        <>
+          <h2> The list is empty. </h2>
+          <h4>Change your search or filter and try again.</h4>
+        </>
+      )}
 
       <ul>
-        {preparedRoutes &&
-          preparedRoutes.map((route) => {
+        {sortedFilteredRoutes &&
+          sortedFilteredRoutes.map((route) => {
             return (
               <li key={route.id}>
                 <RouteItem route={route} />

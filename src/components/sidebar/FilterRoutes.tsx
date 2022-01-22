@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { StyledBaseTitle } from '../../styles/Filters';
 import FilterByCompany from './FilterByCompany';
+import FilterByEndCity from './FilterByEndCity';
 import FilterByStartCity from './FilterByStartCity';
 
 interface Props {}
@@ -18,6 +19,7 @@ const FilterRoutes = (props: Props) => {
       </StyledBaseTitle>
       <FilterByCompany />
       <FilterByStartCity />
+      <FilterByEndCity />
     </FilterWrapper>
   );
 };

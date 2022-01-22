@@ -7,9 +7,16 @@ export const getSortedFilteredCollection = createSelector(
     (state) => state && state.routes.routes,
     (state) => state.filterByCompany.filterByCompany,
     (state) => state.filterByStartCity.filterByStartCity,
+    (state) => state.filterByEndCity.filterByEndCity,
     (state) => state.sortParams,
   ],
-  (routes: IRoute[], filterByCompany, filterByStartCity, sortParams) => {
+  (
+    routes: IRoute[],
+    filterByCompany,
+    filterByStartCity,
+    filterByEndCity,
+    sortParams
+  ) => {
     if (routes.length === 0) {
       return [];
     }
@@ -20,11 +27,15 @@ export const getSortedFilteredCollection = createSelector(
     const noStartCities = !Object.values(filterByStartCity).some(
       (item) => item === true
     );
+    const noEndCities = !Object.values(filterByEndCity).some(
+      (item) => item === true
+    );
 
     let filteredRoutes = routes.filter(
       (route) =>
         (noCompanies || filterByCompany[route.company.name]) &&
-        (noStartCities || filterByStartCity[route.start_city.city.name])
+        (noStartCities || filterByStartCity[route.start_city.city.name]) &&
+        (noEndCities || filterByEndCity[route.end_city.city.name])
     );
 
     if (sortParams) {
