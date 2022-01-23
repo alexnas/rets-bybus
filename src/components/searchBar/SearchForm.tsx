@@ -5,6 +5,10 @@ import { CgArrowsExchange } from 'react-icons/cg';
 import { Flex } from '../../styles/Flex';
 import { Container } from '../../styles/Container';
 import { StyledButton } from '../../styles/Button';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { setSearchParams } from '../../store/slices/searchSlice';
+import { getRoutesAsync } from '../../store/slices/routesSlice';
+import { createBusRouteEndpoint } from '../../api/createEndpoint';
 
 interface Props {}
 
@@ -63,9 +67,13 @@ const StyledFormWrapper = styled(Flex)`
 `;
 
 export const SearchForm = (props: Props) => {
-  const [startCity, setStartCity] = useState('startCityStore');
-  const [endCity, setEndCity] = useState('endCityStore');
-  const [company, setCompany] = useState('companyStore');
+  const dispatch = useAppDispatch();
+  const initStartCity = useAppSelector((state) => state.search.startCity);
+  const initEndCity = useAppSelector((state) => state.search.endCity);
+  const initCompany = useAppSelector((state) => state.search.company);
+  const [startCity, setStartCity] = useState<string>(initStartCity);
+  const [endCity, setEndCity] = useState<string>(initEndCity);
+  const [company, setCompany] = useState<string>(initCompany);
 
   const exchangeFromAndTo = () => {
     const from = startCity;
@@ -75,15 +83,10 @@ export const SearchForm = (props: Props) => {
 
   const handleSubmitSearchForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    console.log(
-      'startCity, endCity, company =====',
-      startCity,
-      endCity,
-      company
-    );
-
-    // history.push('routes');
+    dispatch(setSearchParams({ startCity, endCity, company }));
+    const endpoint = createBusRouteEndpoint({ startCity, endCity, company });
+    dispatch(getRoutesAsync(endpoint));
+    // console.log('endpoint', endpoint);
   };
 
   return (

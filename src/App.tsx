@@ -14,12 +14,14 @@ import SupportPage from './pages/SupportPage';
 import { getRoutesAsync } from './store/slices/routesSlice';
 import { getCompaniesAsync } from './store/slices/companiesSlice';
 import { getCitiesAsync } from './store/slices/citiesSlice';
+import { createBusRouteEndpoint } from './api/createEndpoint';
+import { initialSearchParams } from './constants/searchContants';
 
 export const App: React.FC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getRoutesAsync());
+    dispatch(getRoutesAsync(createBusRouteEndpoint(initialSearchParams)));
     dispatch(getCompaniesAsync());
     dispatch(getCitiesAsync());
   }, [dispatch]);

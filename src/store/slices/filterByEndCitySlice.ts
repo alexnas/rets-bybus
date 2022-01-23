@@ -16,6 +16,7 @@ const filterByEndCitySlice = createSlice({
   initialState,
   reducers: {
     initializeFilterByEndCity(state, action: PayloadAction<IRoute[]>) {
+      state.filterByEndCity = {};
       const routes = action.payload;
       const sortedByEndCity = orderBy(routes, END_CITY);
       sortedByEndCity.forEach((route) => {

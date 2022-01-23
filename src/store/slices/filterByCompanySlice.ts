@@ -16,6 +16,7 @@ const filterByCompanySlice = createSlice({
   initialState,
   reducers: {
     initializeFilterByCompany(state, action: PayloadAction<IRoute[]>) {
+      state.filterByCompany = {};
       const routes = action.payload;
       const sortedByCompany = orderBy(routes, COMPANY_NAME);
       sortedByCompany.forEach((route) => {

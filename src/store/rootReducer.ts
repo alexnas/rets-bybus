@@ -6,6 +6,7 @@ import { sortReducer } from './slices/sortSlice';
 import { filterByCompanyReducer } from './slices/filterByCompanySlice';
 import { filterByStartCityReducer } from './slices/filterByStartCitySlice';
 import { filterByEndCityReducer } from './slices/filterByEndCitySlice';
+import { searchReducer } from './slices/searchSlice';
 
 const rootReducer = combineReducers({
   companies: companiesReducer,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   filterByCompany: filterByCompanyReducer,
   filterByStartCity: filterByStartCityReducer,
   filterByEndCity: filterByEndCityReducer,
+  search: searchReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

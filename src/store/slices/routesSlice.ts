@@ -1,18 +1,14 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { apiGet } from '../../api';
 import { IRoute } from '../../types';
 
 export const getRoutesAsync = createAsyncThunk(
   'route/fetchAll',
-  async (_, thunkAPI) => {
+  async (endpoint: string, thunkAPI) => {
     try {
-      const response = await axios.get<IRoute[]>(
-        'http://localhost:5000/api/route'
-      );
-
+      const response = await apiGet(endpoint);
       const fetchedData = response.data;
-
-      fetchedData.forEach((item) => {
+      fetchedData.forEach((item: IRoute) => {
         item.price = Number(item.price);
       });
 
