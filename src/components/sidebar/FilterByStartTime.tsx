@@ -83,24 +83,24 @@ export const StyledSliderLabel = styled.div`
 export const getStartTimeLimits = (routes: IRoute[]) => {
   if (routes.length === 0) {
     return {
-      minStartTimeLimit: +MIN_SCALE_START_TIME.split(':')[0],
-      maxStartTimeLimit: +MAX_SCALE_START_TIME.split(':')[0],
+      minStartTimeLimit: MIN_SCALE_START_TIME,
+      maxStartTimeLimit: MAX_SCALE_START_TIME,
     };
   }
 
   const sortedByStartTime = orderBy(routes, START_TIME);
-  let minStartTime: string = MIN_SCALE_START_TIME;
-  let maxStartTime: string = MAX_SCALE_START_TIME;
+  let minStartTime: number = MIN_SCALE_START_TIME;
+  let maxStartTime: number = MAX_SCALE_START_TIME;
   if (sortedByStartTime.length > 0) {
-    minStartTime = sortedByStartTime[0][START_TIME];
-    maxStartTime = sortedByStartTime[sortedByStartTime.length - 1][START_TIME];
+    minStartTime = +sortedByStartTime[0][START_TIME];
+    maxStartTime = +sortedByStartTime[sortedByStartTime.length - 1][START_TIME];
   }
 
-  const minStartTimeLimit = +minStartTime.split(':')[0];
-  const maxStartTimeLimit = +maxStartTime.split(':')[0] + 1;
+  const minStartTimeLimit = minStartTime;
+  const maxStartTimeLimit = maxStartTime + 1;
 
-  const minStartScaleLimit = +MIN_SCALE_START_TIME.split(':')[0];
-  const maxStartScaleLimit = +MAX_SCALE_START_TIME.split(':')[0];
+  const minStartScaleLimit = MIN_SCALE_START_TIME;
+  const maxStartScaleLimit = MAX_SCALE_START_TIME;
 
   return {
     minStartTime,
@@ -122,8 +122,8 @@ const FilterByStartTime: React.FC = (props: Props) => {
   );
 
   let { minStartTimeLimit, maxStartTimeLimit } = getStartTimeLimits(routes);
-  const minHourLimit = +MIN_SCALE_START_TIME.split(':')[0];
-  const maxHourLimit = +MAX_SCALE_START_TIME.split(':')[0];
+  const minHourLimit = MIN_SCALE_START_TIME;
+  const maxHourLimit = MAX_SCALE_START_TIME;
 
   const minTimeLimit = minStartTimeLimit ? minStartTimeLimit : minHourLimit;
   const maxTimeLimit = maxStartTimeLimit ? maxStartTimeLimit : maxHourLimit;

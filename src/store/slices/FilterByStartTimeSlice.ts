@@ -11,8 +11,8 @@ interface IFilterByStartTime {
   maxCurrent?: number;
 }
 
-const minHourLimit = +MIN_SCALE_START_TIME.split(':')[0];
-const maxHourLimit = +MAX_SCALE_START_TIME.split(':')[0];
+const minHourLimit = MIN_SCALE_START_TIME;
+const maxHourLimit = MAX_SCALE_START_TIME;
 
 const initialState: IFilterByStartTime = {
   minLimit: minHourLimit,
