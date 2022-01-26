@@ -1,11 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { initializeFilterByCompany } from '../../store/slices/filterByCompanySlice';
-import { initializeFilterByStartCity } from '../../store/slices/filterByStartCitySlice';
-import { initializeFilterByEndCity } from '../../store/slices/filterByEndCitySlice';
 import { StyledButton } from '../../styles/Button';
+import { useFilterReset } from './useFilterResetHook';
 
 const ButtonWrapper = styled.div`
   display: flex;
@@ -22,18 +18,17 @@ const StyledResetButton = styled(StyledButton)`
 `;
 
 const FilterResetButton: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const routes = useAppSelector((state) => state.routes.routes);
+  const { resetFilter } = useFilterReset();
 
-  const filterReset = () => {
-    dispatch(initializeFilterByCompany(routes));
-    dispatch(initializeFilterByStartCity(routes));
-    dispatch(initializeFilterByEndCity(routes));
+  const handleFilterReset = () => {
+    resetFilter();
   };
 
   return (
     <ButtonWrapper className='relative group leading-9 shadow-asideBox border-1 border-gray-500 rounded-sm mb-2 text-base bg-topBg'>
-      <StyledResetButton onClick={filterReset}>Reset</StyledResetButton>
+      <StyledResetButton type='button' onClick={handleFilterReset}>
+        Reset
+      </StyledResetButton>
     </ButtonWrapper>
   );
 };

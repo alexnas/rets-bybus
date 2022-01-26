@@ -1,4 +1,5 @@
 export const START_TIME = 'start_time';
+export const END_TIME = 'end_time';
 export const START_CITY = 'start_city.city.name';
 export const END_CITY = 'end_city.city.name';
 export const COMPANY_NAME = 'company.name';

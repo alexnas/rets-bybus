@@ -8,6 +8,7 @@ export const getSortedFilteredCollection = createSelector(
     (state) => state.filterByCompany.filterByCompany,
     (state) => state.filterByStartCity.filterByStartCity,
     (state) => state.filterByEndCity.filterByEndCity,
+    (state) => state.filterByStartTime,
     (state) => state.sortParams,
   ],
   (
@@ -15,6 +16,7 @@ export const getSortedFilteredCollection = createSelector(
     filterByCompany,
     filterByStartCity,
     filterByEndCity,
+    filterByStartTime,
     sortParams
   ) => {
     if (routes.length === 0) {
@@ -35,7 +37,9 @@ export const getSortedFilteredCollection = createSelector(
       (route) =>
         (noCompanies || filterByCompany[route.company.name]) &&
         (noStartCities || filterByStartCity[route.start_city.city.name]) &&
-        (noEndCities || filterByEndCity[route.end_city.city.name])
+        (noEndCities || filterByEndCity[route.end_city.city.name]) &&
+        +route.start_time.split(':')[0] >= filterByStartTime.minCurrent &&
+        +route.start_time.split(':')[0] < filterByStartTime.maxCurrent
     );
 
     if (sortParams) {

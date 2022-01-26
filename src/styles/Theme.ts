@@ -1,5 +1,3 @@
-export type ThemeType = typeof theme;
-
 export const theme = {
   colors: {
     headerBg: '#fec91c',
@@ -24,3 +22,5 @@ export const theme = {
 
   mobile: '768px',
 };
+
+export type ThemeType = typeof theme;

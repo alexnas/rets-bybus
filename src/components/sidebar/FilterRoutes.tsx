@@ -4,6 +4,7 @@ import { StyledBaseTitle } from '../../styles/Filters';
 import FilterByCompany from './FilterByCompany';
 import FilterByEndCity from './FilterByEndCity';
 import FilterByStartCity from './FilterByStartCity';
+import FilterByStartTime from './FilterByStartTime';
 import FilterResetButton from './FilterResetButton';
 
 const FilterWrapper = styled.div`
@@ -16,6 +17,7 @@ const FilterRoutes: React.FC = () => {
       <StyledBaseTitle>
         <span>Filter</span>
       </StyledBaseTitle>
+      <FilterByStartTime />
       <FilterByCompany />
       <FilterByStartCity />
       <FilterByEndCity />
