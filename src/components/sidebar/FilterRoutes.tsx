@@ -5,6 +5,7 @@ import FilterByCompany from './FilterByCompany';
 import FilterByEndCity from './FilterByEndCity';
 import FilterByStartCity from './FilterByStartCity';
 import FilterByStartTime from './FilterByStartTime';
+import FilterByEndTime from './FilterByEndTime';
 import FilterResetButton from './FilterResetButton';
 
 const FilterWrapper = styled.div`
@@ -18,6 +19,7 @@ const FilterRoutes: React.FC = () => {
         <span>Filter</span>
       </StyledBaseTitle>
       <FilterByStartTime />
+      <FilterByEndTime />
       <FilterByCompany />
       <FilterByStartCity />
       <FilterByEndCity />

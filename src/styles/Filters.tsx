@@ -10,6 +10,17 @@ export const StyledBaseTitle = styled.div`
   ${textBase}
 `;
 
+export const StyledFilterWrapper = styled.div`
+  ${textBase};
+  position: relative;
+  box-shadow: '0 3px 5px 0 rgb(0 0 0 / 20%)';
+  border: 1px solid rgb(204, 204, 204);
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 0.5rem;
+`;
+
 export const StyledFilterWrapperUl = styled.ul`
   ${textBase};
   position: relative;

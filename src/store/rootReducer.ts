@@ -7,6 +7,7 @@ import { filterByCompanyReducer } from './slices/filterByCompanySlice';
 import { filterByStartCityReducer } from './slices/filterByStartCitySlice';
 import { filterByEndCityReducer } from './slices/filterByEndCitySlice';
 import { filterByStartTimeReducer } from './slices/FilterByStartTimeSlice';
+import { filterByEndTimeReducer } from './slices/filterByEndTimeSlice';
 import { searchReducer } from './slices/searchSlice';
 
 const rootReducer = combineReducers({
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   filterByStartCity: filterByStartCityReducer,
   filterByEndCity: filterByEndCityReducer,
   filterByStartTime: filterByStartTimeReducer,
+  filterByEndTime: filterByEndTimeReducer,
   search: searchReducer,
 });
 
