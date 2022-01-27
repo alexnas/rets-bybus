@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
   initializeFilterByStartTime,
   setFilterByStartTimeParams,
-} from '../../store/slices/FilterByStartTimeSlice';
+} from '../../store/slices/filterByStartTimeSlice';
 import { IRoute } from '../../types';
 import { START_TIME } from '../../constants/sortConstants';
 import {
@@ -115,8 +115,8 @@ const FilterByStartTime: React.FC = (props: Props) => {
   const minCur = minCurrent ? minCurrent : minStartTimeLimit; // Defined current values
   const maxCur = maxCurrent ? maxCurrent : maxStartTimeLimit; // Defined current values
 
-  const minCurrentLable: string = minCurrent ? minCurrent + ':00' : `__:__`; // LAbel current values
-  const maxCurrentLable: string = maxCurrent ? maxCurrent + ':00' : `__:__`; // LAbel current values
+  const minCurrentLabel: string = minCurrent ? minCurrent + ':00' : `__:__`; // LAbel current values
+  const maxCurrentLabel: string = maxCurrent ? maxCurrent + ':00' : `__:__`; // LAbel current values
 
   useEffect(() => {
     if (routes.length > 0) {
@@ -146,8 +146,8 @@ const FilterByStartTime: React.FC = (props: Props) => {
     <StyledFilterWrapper>
       <div>Departure Time</div>
       <StyledSliderLabel>
-        <div>{minCurrentLable}</div>
-        <div>{maxCurrentLable}</div>
+        <div>{minCurrentLabel}</div>
+        <div>{maxCurrentLabel}</div>
       </StyledSliderLabel>
       <StyledSlider
         value={[minCur, maxCur]}

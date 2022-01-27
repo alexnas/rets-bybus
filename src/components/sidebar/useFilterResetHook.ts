@@ -4,7 +4,7 @@ import { initializeFilterByCompany } from '../../store/slices/filterByCompanySli
 import { initializeFilterByStartCity } from '../../store/slices/filterByStartCitySlice';
 import { initializeFilterByEndCity } from '../../store/slices/filterByEndCitySlice';
 import { getStartTimeLimits } from './FilterByStartTime';
-import { resetFilterByStartTime } from '../../store/slices/FilterByStartTimeSlice';
+import { resetFilterByStartTime } from '../../store/slices/filterByStartTimeSlice';
 import { resetFilterByEndTime } from '../../store/slices/filterByEndTimeSlice';
 import { getEndTimeLimits } from './FilterByEndTime';
 

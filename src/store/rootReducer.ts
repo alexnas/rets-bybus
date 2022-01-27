@@ -6,7 +6,7 @@ import { sortReducer } from './slices/sortSlice';
 import { filterByCompanyReducer } from './slices/filterByCompanySlice';
 import { filterByStartCityReducer } from './slices/filterByStartCitySlice';
 import { filterByEndCityReducer } from './slices/filterByEndCitySlice';
-import { filterByStartTimeReducer } from './slices/FilterByStartTimeSlice';
+import { filterByStartTimeReducer } from './slices/filterByStartTimeSlice';
 import { filterByEndTimeReducer } from './slices/filterByEndTimeSlice';
 import { searchReducer } from './slices/searchSlice';
 
