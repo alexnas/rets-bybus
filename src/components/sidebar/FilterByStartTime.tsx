@@ -81,34 +81,18 @@ export const StyledSliderLabel = styled.div`
 `;
 
 export const getStartTimeLimits = (routes: IRoute[]) => {
-  if (routes.length === 0) {
-    return {
-      minStartTimeLimit: MIN_SCALE_START_TIME,
-      maxStartTimeLimit: MAX_SCALE_START_TIME,
-    };
+  let minStartTimeLimit: number = MIN_SCALE_START_TIME;
+  let maxStartTimeLimit: number = MAX_SCALE_START_TIME;
+
+  if (routes.length > 0) {
+    const sortedRoutes = orderBy(routes, START_TIME);
+    minStartTimeLimit = +sortedRoutes[0][START_TIME].split(':')[0];
+    maxStartTimeLimit =
+      +sortedRoutes[sortedRoutes.length - 1][START_TIME].split(':')[0] + 1;
   }
-
-  const sortedByStartTime = orderBy(routes, START_TIME);
-  let minStartTime: number = MIN_SCALE_START_TIME;
-  let maxStartTime: number = MAX_SCALE_START_TIME;
-  if (sortedByStartTime.length > 0) {
-    minStartTime = +sortedByStartTime[0][START_TIME];
-    maxStartTime = +sortedByStartTime[sortedByStartTime.length - 1][START_TIME];
-  }
-
-  const minStartTimeLimit = minStartTime;
-  const maxStartTimeLimit = maxStartTime + 1;
-
-  const minStartScaleLimit = MIN_SCALE_START_TIME;
-  const maxStartScaleLimit = MAX_SCALE_START_TIME;
-
   return {
-    minStartTime,
-    maxStartTime,
     minStartTimeLimit,
     maxStartTimeLimit,
-    minStartScaleLimit,
-    maxStartScaleLimit,
   };
 };
 
@@ -122,25 +106,32 @@ const FilterByStartTime: React.FC = (props: Props) => {
   );
 
   let { minStartTimeLimit, maxStartTimeLimit } = getStartTimeLimits(routes);
-  const minHourLimit = MIN_SCALE_START_TIME;
-  const maxHourLimit = MAX_SCALE_START_TIME;
+  const minHourLimit = MIN_SCALE_START_TIME; // 0 Default Scale Limits
+  const maxHourLimit = MAX_SCALE_START_TIME; // 24 Default Scale Limits
 
-  const minTimeLimit = minStartTimeLimit ? minStartTimeLimit : minHourLimit;
-  const maxTimeLimit = maxStartTimeLimit ? maxStartTimeLimit : maxHourLimit;
+  const minTimeLimit = minStartTimeLimit ? minStartTimeLimit : minHourLimit; // Scale limits
+  const maxTimeLimit = maxStartTimeLimit ? maxStartTimeLimit : maxHourLimit; // Scale limits
 
-  const minCur = minCurrent ? minCurrent : minTimeLimit;
-  const maxCur = maxCurrent ? maxCurrent : maxTimeLimit;
+  const minCur = minCurrent ? minCurrent : minStartTimeLimit; // Defined current values
+  const maxCur = maxCurrent ? maxCurrent : maxStartTimeLimit; // Defined current values
+
+  const minCurrentLable: string = minCurrent ? minCurrent + ':00' : `__:__`; // LAbel current values
+  const maxCurrentLable: string = maxCurrent ? maxCurrent + ':00' : `__:__`; // LAbel current values
 
   useEffect(() => {
-    dispatch(
-      initializeFilterByStartTime({
-        filterByStartTime: {
-          minLimit: minTimeLimit,
-          maxLimit: maxTimeLimit,
-        },
-      })
-    );
-  }, [dispatch, minTimeLimit, maxTimeLimit]);
+    if (routes.length > 0) {
+      dispatch(
+        initializeFilterByStartTime({
+          filterByStartTime: {
+            minLimit: minTimeLimit,
+            maxLimit: maxTimeLimit,
+            minCurrent: minCur,
+            maxCurrent: maxCur,
+          },
+        })
+      );
+    }
+  }, [dispatch, minTimeLimit, maxTimeLimit, minCur, maxCur, routes.length]);
 
   const handleOnChange = (values: any) => {
     dispatch(
@@ -155,16 +146,16 @@ const FilterByStartTime: React.FC = (props: Props) => {
     <StyledFilterWrapper>
       <div>Departure Time</div>
       <StyledSliderLabel>
-        <div>{minCur}:00</div>
-        <div>{maxCur}:00</div>
+        <div>{minCurrentLable}</div>
+        <div>{maxCurrentLable}</div>
       </StyledSliderLabel>
       <StyledSlider
         value={[minCur, maxCur]}
         renderTrack={Track}
         renderThumb={(props, state) => Thumb(props, state)}
         onChange={(values: any) => handleOnChange(values)}
-        min={minTimeLimit}
-        max={maxTimeLimit}
+        min={minStartTimeLimit}
+        max={maxStartTimeLimit}
         minDistance={1}
       />
     </StyledFilterWrapper>

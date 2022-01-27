@@ -17,9 +17,10 @@ const maxHourLimit = MAX_SCALE_START_TIME;
 const initialState: IFilterByStartTime = {
   minLimit: minHourLimit,
   maxLimit: maxHourLimit,
-  minCurrent: minHourLimit,
-  maxCurrent: maxHourLimit,
+  minCurrent: undefined,
+  maxCurrent: undefined,
 };
+// TODO: dfgdfg
 
 const filterByStartTimeSlice = createSlice({
   name: 'routesByStartCityFilter',
@@ -31,10 +32,13 @@ const filterByStartTimeSlice = createSlice({
         filterByStartTime: IFilterByStartTime;
       }>
     ) {
-      const { minLimit, maxLimit } = action.payload.filterByStartTime;
+      const { minLimit, maxLimit, minCurrent, maxCurrent } =
+        action.payload.filterByStartTime;
 
       state.minLimit = minLimit;
       state.maxLimit = maxLimit;
+      state.minCurrent = minCurrent;
+      state.maxCurrent = maxCurrent;
     },
 
     resetFilterByStartTime(
@@ -44,7 +48,6 @@ const filterByStartTimeSlice = createSlice({
       }>
     ) {
       const { minLimit, maxLimit } = action.payload.filterByStartTime;
-
       state.minLimit = minLimit;
       state.maxLimit = maxLimit;
       state.minCurrent = minLimit;
