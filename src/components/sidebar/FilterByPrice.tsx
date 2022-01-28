@@ -5,12 +5,12 @@ import { orderBy } from 'lodash';
 import { StyledFilterWrapper } from '../../styles/Filters';
 import { IRoute } from '../../types';
 import {
-  MAX_SCALE_START_TIME,
-  MIN_SCALE_START_TIME,
+  MAX_SCALE_PRICE,
+  MIN_SCALE_PRICE,
 } from '../../constants/filterConstants';
-import { START_TIME } from '../../constants/sortConstants';
+import { PRICE } from '../../constants/sortConstants';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { setFilterByStartTime } from '../../store/slices/filterByStartTimeSlice';
+import { setFilterByPrice } from '../../store/slices/filterByPriceSlice';
 
 const StyledSlider = styled(ReactSlider)`
   margin: 10px 0;
@@ -65,16 +65,16 @@ export const StyledSliderLabel = styled.div`
   margin: 0 10px;
 `;
 
-export const getStartTimeLimits = (routes: IRoute[]) => {
-  let minScaleLimit: number = MIN_SCALE_START_TIME;
-  let maxScaleLimit: number = MAX_SCALE_START_TIME;
+export const getPriceLimits = (routes: IRoute[]) => {
+  let minScaleLimit: number = MIN_SCALE_PRICE;
+  let maxScaleLimit: number = MAX_SCALE_PRICE;
   let isRoutesNotEmpty: boolean = routes.length > 0;
 
   if (isRoutesNotEmpty) {
-    const sortedRoutes = orderBy(routes, START_TIME);
-    minScaleLimit = +sortedRoutes[0][START_TIME].split(':')[0];
+    const sortedRoutes = orderBy(routes, PRICE);
+    minScaleLimit = Math.floor(sortedRoutes[0][PRICE]);
     maxScaleLimit =
-      +sortedRoutes[sortedRoutes.length - 1][START_TIME].split(':')[0] + 1;
+      Math.floor(sortedRoutes[sortedRoutes.length - 1][PRICE]) + 1;
   }
 
   return {
@@ -86,37 +86,36 @@ export const getStartTimeLimits = (routes: IRoute[]) => {
 
 type Props = {};
 
-const FilterByStartTime = (props: Props) => {
+const FilterByPrice = (props: Props) => {
   const dispatch = useAppDispatch();
   const routes = useAppSelector((state) => state.routes.routes);
   const { minCurrent, maxCurrent } = useAppSelector(
-    (state) => state.filterByStartTime
+    (state) => state.filterByPrice
   );
   const { isRoutesNotEmpty, minScaleLimit, maxScaleLimit } =
-    getStartTimeLimits(routes);
+    getPriceLimits(routes);
 
   const minCurrentPosition = minCurrent ? minCurrent : minScaleLimit;
   const maxCurrentPosition = maxCurrent ? maxCurrent : maxScaleLimit;
 
   const minCurrentLabel: string = isRoutesNotEmpty
-    ? minCurrentPosition + ':00'
-    : `__:__`;
+    ? '$' + minCurrentPosition
+    : `$__`;
   const maxCurrentLabel: string = isRoutesNotEmpty
-    ? maxCurrentPosition + ':00'
-    : `__:__`;
+    ? '$' + maxCurrentPosition
+    : `$__`;
 
   const handleOnChange = (values: any) => {
     dispatch(
-      setFilterByStartTime({
+      setFilterByPrice({
         minCurrent: values[0],
         maxCurrent: values[1],
       })
     );
   };
-
   return (
     <StyledFilterWrapper>
-      <div>Departure Time</div>
+      <div>Price</div>
       <StyledSliderLabel>
         <div>{minCurrentLabel}</div>
         <div>{maxCurrentLabel}</div>
@@ -134,4 +133,4 @@ const FilterByStartTime = (props: Props) => {
   );
 };
 
-export default FilterByStartTime;
+export default FilterByPrice;

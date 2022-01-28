@@ -16,9 +16,17 @@ import { getCompaniesAsync } from './store/slices/companiesSlice';
 import { getCitiesAsync } from './store/slices/citiesSlice';
 import { createBusRouteEndpoint } from './api/createEndpoint';
 import { initialSearchParams } from './constants/searchContants';
+import { useFilterReset } from './components/sidebar/useFilterResetHook';
+import { useAppSelector } from './store/hooks';
 
 export const App: React.FC = () => {
   const dispatch = useDispatch();
+  const { resetFilter } = useFilterReset();
+  const routes = useAppSelector((state) => state.routes.routes);
+
+  useEffect(() => {
+    resetFilter();
+  }, [routes, resetFilter]);
 
   useEffect(() => {
     dispatch(getRoutesAsync(createBusRouteEndpoint(initialSearchParams)));

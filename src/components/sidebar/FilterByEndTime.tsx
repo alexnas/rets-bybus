@@ -90,7 +90,7 @@ const FilterByEndTime = (props: Props) => {
   const dispatch = useAppDispatch();
   const routes = useAppSelector((state) => state.routes.routes);
   const { minCurrent, maxCurrent } = useAppSelector(
-    (state) => state.filterByEndTime.endTimeCurrent
+    (state) => state.filterByEndTime
   );
   const { isRoutesNotEmpty, minScaleLimit, maxScaleLimit } =
     getEndTimeLimits(routes);
@@ -100,10 +100,10 @@ const FilterByEndTime = (props: Props) => {
 
   const minCurrentLabel: string = isRoutesNotEmpty
     ? minCurrentPosition + ':00'
-    : `__:__`; // LAbel current values
+    : `__:__`;
   const maxCurrentLabel: string = isRoutesNotEmpty
     ? maxCurrentPosition + ':00'
-    : `__:__`; // LAbel current values
+    : `__:__`;
 
   const handleOnChange = (values: any) => {
     dispatch(
@@ -113,6 +113,7 @@ const FilterByEndTime = (props: Props) => {
       })
     );
   };
+
   return (
     <StyledFilterWrapper>
       <div>Arrival Time</div>

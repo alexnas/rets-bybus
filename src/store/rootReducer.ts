@@ -9,6 +9,7 @@ import { filterByEndCityReducer } from './slices/filterByEndCitySlice';
 import { filterByStartTimeReducer } from './slices/filterByStartTimeSlice';
 import { filterByEndTimeReducer } from './slices/filterByEndTimeSlice';
 import { searchReducer } from './slices/searchSlice';
+import { filterByPriceReducer } from './slices/filterByPriceSlice';
 
 const rootReducer = combineReducers({
   companies: companiesReducer,
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
   filterByEndCity: filterByEndCityReducer,
   filterByStartTime: filterByStartTimeReducer,
   filterByEndTime: filterByEndTimeReducer,
+  filterByPrice: filterByPriceReducer,
   search: searchReducer,
 });
 

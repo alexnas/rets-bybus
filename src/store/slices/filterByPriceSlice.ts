@@ -1,30 +1,30 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export interface IEndTimeLimits {
+export interface IPriceLimits {
   minLimit: number;
   maxLimit: number;
 }
-interface IEndTimeCurrent {
+interface IPriceCurrent {
   minCurrent: number | null;
   maxCurrent: number | null;
 }
 
-const initialState: IEndTimeCurrent = {
+const initialState: IPriceCurrent = {
   minCurrent: null,
   maxCurrent: null,
 };
 
-const filterByEndTimeSlice = createSlice({
+const filterByPriceSlice = createSlice({
   name: 'routesByEndCityFilter',
   initialState,
   reducers: {
-    setFilterByEndTime(state, action: PayloadAction<IEndTimeCurrent>) {
+    setFilterByPrice(state, action: PayloadAction<IPriceCurrent>) {
       const { minCurrent, maxCurrent } = action.payload;
       state.minCurrent = minCurrent;
       state.maxCurrent = maxCurrent;
     },
 
-    resetFilterByEndTime(state, action: PayloadAction<IEndTimeLimits>) {
+    resetFilterByPrice(state, action: PayloadAction<IPriceLimits>) {
       const { minLimit, maxLimit } = action.payload;
       state.minCurrent = minLimit;
       state.maxCurrent = maxLimit;
@@ -32,6 +32,6 @@ const filterByEndTimeSlice = createSlice({
   },
 });
 
-export const { setFilterByEndTime, resetFilterByEndTime } =
-  filterByEndTimeSlice.actions;
-export const filterByEndTimeReducer = filterByEndTimeSlice.reducer;
+export const { setFilterByPrice, resetFilterByPrice } =
+  filterByPriceSlice.actions;
+export const filterByPriceReducer = filterByPriceSlice.reducer;

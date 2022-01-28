@@ -9,7 +9,6 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { setSearchParams } from '../../store/slices/searchSlice';
 import { getRoutesAsync } from '../../store/slices/routesSlice';
 import { createBusRouteEndpoint } from '../../api/createEndpoint';
-import { useFilterReset } from '../sidebar/useFilterResetHook';
 
 interface Props {}
 
@@ -75,7 +74,6 @@ export const SearchForm = (props: Props) => {
   const [startCity, setStartCity] = useState<string>(initStartCity);
   const [endCity, setEndCity] = useState<string>(initEndCity);
   const [company, setCompany] = useState<string>(initCompany);
-  const { resetFilter } = useFilterReset();
 
   const exchangeFromAndTo = () => {
     const from = startCity;
@@ -88,7 +86,6 @@ export const SearchForm = (props: Props) => {
     dispatch(setSearchParams({ startCity, endCity, company }));
     const endpoint = createBusRouteEndpoint({ startCity, endCity, company });
     dispatch(getRoutesAsync(endpoint));
-    resetFilter();
   };
 
   return (
