@@ -3,28 +3,34 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { initializeFilterByCompany } from '../../store/slices/filterByCompanySlice';
 import { initializeFilterByStartCity } from '../../store/slices/filterByStartCitySlice';
 import { initializeFilterByEndCity } from '../../store/slices/filterByEndCitySlice';
-import { getStartTimeLimits } from './FilterByStartTime';
 import { resetFilterByStartTime } from '../../store/slices/filterByStartTimeSlice';
 import { resetFilterByEndTime } from '../../store/slices/filterByEndTimeSlice';
-import { getEndTimeLimits } from './FilterByEndTime';
 import { resetFilterByPrice } from '../../store/slices/filterByPriceSlice';
-import { getPriceLimits } from './FilterByPrice';
+import {
+  selectEndTimeLimits,
+  selectPriceLimits,
+  selectStartTimeLimits,
+} from '../../utils/selectors/filterSelectors';
 
 export const useFilterReset = () => {
   const dispatch = useAppDispatch();
   const routes = useAppSelector((state) => state.routes.routes);
+
   const {
     minScaleLimit: minStartTimeScaleLimit,
     maxScaleLimit: maxStartTimeScaleLimit,
-  } = getStartTimeLimits(routes);
+  } = useAppSelector((state) => selectStartTimeLimits(state));
+
   const {
     minScaleLimit: minEndTimeScaleLimit,
     maxScaleLimit: maxEndTimeScaleLimit,
-  } = getEndTimeLimits(routes);
+  } = useAppSelector((state) => selectEndTimeLimits(state));
+
   const {
     minScaleLimit: minPriceScaleLimit,
     maxScaleLimit: maxPriceScaleLimit,
-  } = getPriceLimits(routes);
+  } = useAppSelector((state) => selectPriceLimits(state));
+
   const [isFilterChanged, setFilterChanged] = useState<boolean>(false);
 
   const resetFilter = () => {

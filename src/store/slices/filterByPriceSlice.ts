@@ -4,7 +4,7 @@ export interface IPriceLimits {
   minLimit: number;
   maxLimit: number;
 }
-interface IPriceCurrent {
+export interface IPriceCurrent {
   minCurrent: number | null;
   maxCurrent: number | null;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAppSelector } from '../../store/hooks';
 import { IRoute } from '../../types';
-import { getSortedFilteredCollection } from '../../utils/selectors';
+import { getSortedFilteredCollection } from '../../utils/selectors/filterSelectors';
 import RouteItem from './RoutesItem';
 
 const RoutesList: React.FC = () => {
