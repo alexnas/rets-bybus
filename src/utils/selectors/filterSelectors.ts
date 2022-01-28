@@ -139,3 +139,13 @@ export const getSortedFilteredCollection = createSelector(
     return filteredRoutes;
   }
 );
+
+export const selectFoundFilteredRoutesCount = createSelector(
+  [routesSelector, getSortedFilteredCollection],
+  (routes, filteredRoutes) => {
+    const foundCount = routes.length;
+    const filteredCount = filteredRoutes.length;
+
+    return { foundCount, filteredCount };
+  }
+);

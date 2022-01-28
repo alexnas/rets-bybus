@@ -2,6 +2,7 @@ import React from 'react';
 import { useAppSelector } from '../../store/hooks';
 import { IRoute } from '../../types';
 import { getSortedFilteredCollection } from '../../utils/selectors/filterSelectors';
+import FilterSummary from '../sidebar/FilterSummary';
 import RouteItem from './RoutesItem';
 
 const RoutesList: React.FC = () => {
@@ -25,6 +26,7 @@ const RoutesList: React.FC = () => {
           <h4>Change your search or filter and try again.</h4>
         </>
       )}
+      <FilterSummary />
 
       <ul>
         {sortedFilteredRoutes &&
