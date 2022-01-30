@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FaCaretDown } from 'react-icons/fa';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import {
-  initializeFilterByCompany,
-  setCompanyFilterParams,
-} from '../../store/slices/filterByCompanySlice';
+import { setCompanyFilterParams } from '../../store/slices/filterByCompanySlice';
 import {
   FilterItem,
   StyledFilterLi,
@@ -40,14 +37,9 @@ const CompanyFilterItem: React.FC<IItemProps> = ({
 const FilterByCompany: React.FC = () => {
   const dispatch = useAppDispatch();
   const [showFilterBox, setShowFilterBox] = useState(true);
-  const routes = useAppSelector((state) => state.routes.routes);
   const filterByCompany = useAppSelector(
     (state) => state.filterByCompany.filterByCompany
   );
-
-  useEffect(() => {
-    dispatch(initializeFilterByCompany(routes));
-  }, [dispatch, routes]);
 
   const toggleCompanyBox = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();

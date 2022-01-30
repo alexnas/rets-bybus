@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FaCaretDown } from 'react-icons/fa';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import {
-  initializeFilterByStartCity,
-  setStartCityFilterParams,
-} from '../../store/slices/filterByStartCitySlice';
+import { setStartCityFilterParams } from '../../store/slices/filterByStartCitySlice';
 import {
   FilterItem,
   StyledFilterLi,
@@ -43,14 +40,9 @@ const StartCityFilterItem: React.FC<IItemProps> = ({
 const FilterByStartCity: React.FC = () => {
   const dispatch = useAppDispatch();
   const [showFilterBox, setShowFilterBox] = useState(true);
-  const routes = useAppSelector((state) => state.routes.routes);
   const filterByStartCity = useAppSelector(
     (state) => state.filterByStartCity.filterByStartCity
   );
-
-  useEffect(() => {
-    dispatch(initializeFilterByStartCity(routes));
-  }, [dispatch, routes]);
 
   const toggleShowFilterBox = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
