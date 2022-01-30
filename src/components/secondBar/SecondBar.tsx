@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useAppSelector } from '../../store/hooks';
 import { Container } from '../../styles/Container';
 import { StyledFlex } from '../../styles/Flex';
 
@@ -14,11 +15,16 @@ const StyledSecondBar = styled.div`
 `;
 
 const SecondBar: React.FC<ISecondBar> = (props) => {
+  const { startCity, endCity } = useAppSelector((state) => state.search);
+
   return (
     <StyledSecondBar>
       <Container>
         <StyledFlex>
-          <h4>{props.title}</h4>
+          <h4>
+            Your journey: from {startCity ? startCity : 'anywhere'} to{' '}
+            {endCity ? endCity : 'anywhere'}
+          </h4>
           <h4> ~~~ GoByBus ~~~ </h4>
         </StyledFlex>
       </Container>
