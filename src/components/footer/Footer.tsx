@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Container } from '../../styles/Container';
-import { Flex } from '../../styles/Flex';
+import { StyledFlex } from '../../styles/Flex';
 import { HeaderNav } from '../header/HeaderNav';
 import Copyright from './Copyright';
 import Social from './Social';
@@ -25,13 +25,13 @@ const Footer: React.FC = (props) => {
   return (
     <StyledFooter>
       <Container>
-        <Flex>
+        <StyledFlex>
           <HeaderNav />
-          <Flex justify='end'>
+          <StyledFlex justify='end'>
             <Social />
             <Copyright />
-          </Flex>
-        </Flex>
+          </StyledFlex>
+        </StyledFlex>
       </Container>
     </StyledFooter>
   );

@@ -7,7 +7,7 @@ import {
 } from '../../store/slices/filterByStartCitySlice';
 import {
   FilterItem,
-  FilterLi,
+  StyledFilterLi,
   StyledFilterWrapperUl,
   StyledLink,
 } from '../../styles/Filters';
@@ -77,7 +77,7 @@ const FilterByStartCity: React.FC = () => {
           <div>Departure City</div>
         </StyledLink>
       </li>
-      <FilterLi showFilterBox={showFilterBox}>
+      <StyledFilterLi showFilterBox={showFilterBox}>
         {Object.keys(filterByStartCity).map((item) => {
           return (
             <StartCityFilterItem
@@ -88,7 +88,7 @@ const FilterByStartCity: React.FC = () => {
             />
           );
         })}
-      </FilterLi>
+      </StyledFilterLi>
     </StyledFilterWrapperUl>
   );
 };

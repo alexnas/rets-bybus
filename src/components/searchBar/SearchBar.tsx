@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Flex } from '../../styles/Flex';
+import { StyledFlex } from '../../styles/Flex';
 import { SearchForm } from './SearchForm';
 const searchBg = process.env.PUBLIC_URL + '/images/searchbg.jpg';
 
-const StyledSearchBar = styled(Flex)`
+const StyledSearchBar = styled(StyledFlex)`
   background-image: url(${searchBg});
   background-size: cover;
   background-position: center;

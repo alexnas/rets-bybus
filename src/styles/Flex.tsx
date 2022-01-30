@@ -1,4 +1,3 @@
-import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
 interface IFlexProps {
@@ -9,10 +8,10 @@ interface IFlexProps {
   padding?: string;
   width?: string;
   height?: string;
-  children: ReactNode;
+  // children: ReactNode;
 }
 
-const StyledFlex = styled.div<IFlexProps>`
+export const StyledFlex = styled.div<IFlexProps>`
   display: flex;
   white-space: 'nowrap';
   flex-direction: ${(props) => props.direction || 'row'};
@@ -23,7 +22,3 @@ const StyledFlex = styled.div<IFlexProps>`
   width: ${({ width }) => width || 'auto'};
   height: ${({ height }) => height || 'auto'};
 `;
-
-export const Flex: React.FC<IFlexProps> = (props) => {
-  return <StyledFlex {...props} />;
-};

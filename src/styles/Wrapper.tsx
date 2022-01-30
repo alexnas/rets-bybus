@@ -1,4 +1,3 @@
-import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
 interface IWrapperProps {
@@ -7,17 +6,12 @@ interface IWrapperProps {
   padding?: string;
   margin?: string;
   maxWidth?: string;
-  children: ReactNode;
 }
 
-const StyledWrapper = styled.div<IWrapperProps>`
+export const StyledWrapper = styled.div<IWrapperProps>`
   display: ${(props) => props.display || 'block'};
   min-height: ${(props) => props.minHeight || '600px'};
   margin: ${(props) => props.margin || '0 auto'};
   padding: ${(props) => props.padding || '0'};
   max-width: ${(props) => props.maxWidth || '1024px'};
 `;
-
-export const Wrapper: React.FC<IWrapperProps> = (props) => {
-  return <StyledWrapper {...props} />;
-};

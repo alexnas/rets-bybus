@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Flex } from '../../styles/Flex';
+import { StyledFlex } from '../../styles/Flex';
 import { StyledLink } from '../../styles/StyledLink';
 
 export const StyledHeaderNav = styled.nav`
@@ -24,7 +24,7 @@ export const HeaderNav: React.FC = () => {
   return (
     <StyledHeaderNav>
       <ul>
-        <Flex>
+        <StyledFlex>
           <li>
             <StyledLink to='/'>Home</StyledLink>
           </li>
@@ -40,7 +40,7 @@ export const HeaderNav: React.FC = () => {
           <li>
             <StyledLink to='about'>About</StyledLink>
           </li>
-        </Flex>
+        </StyledFlex>
       </ul>
     </StyledHeaderNav>
   );

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { CgArrowsExchange } from 'react-icons/cg';
 
-import { Flex } from '../../styles/Flex';
+import { StyledFlex } from '../../styles/Flex';
 import { Container } from '../../styles/Container';
 import { StyledButton } from '../../styles/Button';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
@@ -62,7 +62,7 @@ const StyledSearchButton = styled(StyledButton)`
   margin-bottom: 10px;
 `;
 
-const StyledFormWrapper = styled(Flex)`
+const StyledFormWrapper = styled(StyledFlex)`
   width: 100%;
 `;
 
@@ -91,7 +91,7 @@ export const SearchForm = (props: Props) => {
   return (
     <Container>
       <StyledSeachForm onSubmit={handleSubmitSearchForm}>
-        <Flex>
+        <StyledFlex>
           <StyledFormWrapper>
             <StyledInput
               onChange={(e) => {
@@ -121,7 +121,7 @@ export const SearchForm = (props: Props) => {
             />
           </StyledFormWrapper>
           <StyledSearchButton>Find now</StyledSearchButton>
-        </Flex>
+        </StyledFlex>
       </StyledSeachForm>
     </Container>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
 import SecondBar from '../components/secondBar/SecondBar';
 import { Container } from '../styles/Container';
-import { Wrapper } from '../styles/Wrapper';
+import { StyledWrapper } from '../styles/Wrapper';
 
 interface Props {}
 
@@ -10,7 +10,7 @@ const SupportPage: React.FC = (props: Props) => {
     <>
       <SecondBar title='Customer Support' />
       <Container>
-        <Wrapper>
+        <StyledWrapper>
           <h2>Bus support</h2>
           <h4>We’ll help you get your bus</h4>
 
@@ -20,7 +20,7 @@ const SupportPage: React.FC = (props: Props) => {
             suscipit ab sit dolor eaque tenetur necessitatibus neque voluptatum!
             Asperiores, modi. +1-345-456-5656
           </p>
-        </Wrapper>
+        </StyledWrapper>
       </Container>
     </>
   );

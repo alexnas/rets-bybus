@@ -1,17 +1,11 @@
-import React, { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 
-export const textBase = css`
+export const StyledBaseTitle = styled.div`
   font-size: 1rem;
   line-height: 1.5rem;
 `;
 
-export const StyledBaseTitle = styled.div`
-  ${textBase}
-`;
-
-export const StyledFilterWrapper = styled.div`
-  ${textBase};
+export const styledFilterWrapper = css`
   position: relative;
   box-shadow: '0 3px 5px 0 rgb(0 0 0 / 20%)';
   border: 1px solid rgb(204, 204, 204);
@@ -19,16 +13,22 @@ export const StyledFilterWrapper = styled.div`
   border-radius: 5px;
   padding: 5px 10px;
   margin-bottom: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+`;
+
+export const StyledFilterWrapper = styled.div`
+  ${styledFilterWrapper};
 `;
 
 export const StyledFilterWrapperUl = styled.ul`
-  ${textBase};
+  ${styledFilterWrapper};
+  padding: 10px;
   position: relative;
   box-shadow: '0 3px 5px 0 rgb(0 0 0 / 20%)';
   border: 1px solid rgb(204, 204, 204);
   background-color: white;
   border-radius: 5px;
-  padding: 10px;
   margin-bottom: 0.5rem;
 `;
 
@@ -49,10 +49,9 @@ export const StyledLink = styled.a`
 
 interface IFilterLiProps {
   showFilterBox: boolean;
-  children: ReactNode;
 }
 
-const StyledFilterLi = styled.li<IFilterLiProps>`
+export const StyledFilterLi = styled.li<IFilterLiProps>`
   display: ${(props) => (!props.showFilterBox ? '' : 'none')};
   margin-top: ${(props) => (!props.showFilterBox ? '8px' : '0')};
   div:first-child {
@@ -62,10 +61,6 @@ const StyledFilterLi = styled.li<IFilterLiProps>`
     border-top: 1px solid rgb(209 213 219 / 60%);
   }
 `;
-
-export const FilterLi: React.FC<IFilterLiProps> = (props) => {
-  return <StyledFilterLi {...props} />;
-};
 
 export const FilterItem = styled.div`
   display: flex;

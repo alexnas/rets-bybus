@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Container } from '../../styles/Container';
-import { Flex } from '../../styles/Flex';
+import { StyledFlex } from '../../styles/Flex';
 
 interface ISecondBar {
   title: string;
@@ -17,10 +17,10 @@ const SecondBar: React.FC<ISecondBar> = (props) => {
   return (
     <StyledSecondBar>
       <Container>
-        <Flex>
+        <StyledFlex>
           <h4>{props.title}</h4>
           <h4> ~~~ GoByBus ~~~ </h4>
-        </Flex>
+        </StyledFlex>
       </Container>
     </StyledSecondBar>
   );
