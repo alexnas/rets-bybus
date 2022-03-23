@@ -1,18 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Flex } from '../../styles/Flex';
+import { StyledFlex } from '../../styles/Flex';
 import { StyledLink } from '../../styles/StyledLink';
 
 export const StyledHeaderNav = styled.nav`
-  align-items: center;
   display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
 
   li {
-    list-style-type: none;
     margin-left: 10px;
   }
   li > a {
-    text-decoration: none;
     color: inherit;
 
     &:hover {
@@ -25,7 +24,7 @@ export const HeaderNav: React.FC = () => {
   return (
     <StyledHeaderNav>
       <ul>
-        <Flex>
+        <StyledFlex>
           <li>
             <StyledLink to='/'>Home</StyledLink>
           </li>
@@ -41,7 +40,7 @@ export const HeaderNav: React.FC = () => {
           <li>
             <StyledLink to='about'>About</StyledLink>
           </li>
-        </Flex>
+        </StyledFlex>
       </ul>
     </StyledHeaderNav>
   );

@@ -34,7 +34,7 @@ const GlobalStyles = createGlobalStyle<GlobalStyleProps>`
 	}
 	
 	h3 {
-		font-size: 18px;
+		font-size: 20px;
 		font-weight: 600;
 		color: #fff;
 		text-align: left;
@@ -42,14 +42,19 @@ const GlobalStyles = createGlobalStyle<GlobalStyleProps>`
 	}
 
 		h4 {
-		font-size: 22px;
-		font-weight: 400;
+		font-size: 18px;
+		font-weight: 600;
 		text-align: left;
 		padding: 5px 0 10px 0;
 	}
 
+	ul {
+		list-style-type: none;
+	}
 
-
+	a {
+		text-decoration: none;
+	}
 
   img {
     max-width: 100%;

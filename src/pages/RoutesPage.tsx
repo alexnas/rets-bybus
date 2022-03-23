@@ -1,25 +1,23 @@
 import React from 'react';
+import RoutesBlock from '../components/RoutesBlock/RoutesBlock';
 import SecondBar from '../components/secondBar/SecondBar';
-import { Container } from '../styles/Container';
-import { MainWrapper } from '../styles/MainWrapper';
+import Sidebar from '../components/sidebar/Sidebar';
+import { StyledWrapper } from '../styles/Wrapper';
 
 interface Props {}
 
 const RoutesPage: React.FC = (props: Props) => {
-  return (
-    <MainWrapper>
-      <SecondBar title='Your journey: from Cuenca to ...' />
-      <Container>
-        <h4>Found routes table</h4>
+  const startCity = 'Cuenca';
+  const endCity = 'Quito';
 
-        <p>Under Construction...</p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
-          suscipit ab sit dolor eaque tenetur necessitatibus neque voluptatum!
-          Asperiores, modi. +1-345-456-5656
-        </p>
-      </Container>
-    </MainWrapper>
+  return (
+    <>
+      <SecondBar title={`Your journey: from ${startCity} to ${endCity}`} />
+      <StyledWrapper display='flex' padding='40px 0 0 0'>
+        <Sidebar />
+        <RoutesBlock />
+      </StyledWrapper>
+    </>
   );
 };
 

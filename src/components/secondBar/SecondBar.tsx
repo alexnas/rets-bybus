@@ -1,26 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useAppSelector } from '../../store/hooks';
 import { Container } from '../../styles/Container';
-import { Flex } from '../../styles/Flex';
+import { StyledFlex } from '../../styles/Flex';
 
 interface ISecondBar {
   title: string;
 }
 
 const StyledSecondBar = styled.div`
-  padding: 14px 0;
+  padding: 12px 0;
   background-color: ${({ theme }) => theme.colors.secBg};
   color: ${({ theme }) => theme.colors.thirdLight};
 `;
 
 const SecondBar: React.FC<ISecondBar> = (props) => {
+  const { startCity, endCity } = useAppSelector((state) => state.search);
+
   return (
     <StyledSecondBar>
       <Container>
-        <Flex>
-          <h4>{props.title}</h4>
+        <StyledFlex>
+          <h4>
+            Your journey: from {startCity ? startCity : 'anywhere'} to{' '}
+            {endCity ? endCity : 'anywhere'}
+          </h4>
           <h4> ~~~ GoByBus ~~~ </h4>
-        </Flex>
+        </StyledFlex>
       </Container>
     </StyledSecondBar>
   );
